@@ -18,7 +18,6 @@ const {
   startDay,
 } = require("./config");
 
-// test commit
 async function init() {
   try {
     // 获取one一个文案
