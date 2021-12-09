@@ -33,18 +33,26 @@ async function init() {
       "days"
     );
 
+    const sendContent = wordRes.data;
+    // const sendContent =
+    //   `
+    // 男：你负责貌美如花，那我呢？
+    // 女：赚钱养家？？？
+    // 男：不！插花。` || wordRes.data;
+
     // 发送邮件;
     sendEmail({
       from: fromDisplayText,
       to,
       subject: fromDisplaySubText,
-      html: emailHtml(wordRes.data, lovingDays),
+      html: emailHtml(sendContent, lovingDays),
     });
+
     sendEmail({
-      from: "邮件机器人宝宝",
+      from: "Mail Robot Baby",
       to: "imaxing@126.com",
-      subject: "今天给大华宝宝的邮件内容",
-      html: `<p>${wordRes.data}</p>`,
+      subject: "Contents of today's email to baby 大华",
+      html: `<b>${sendContent}</b>`,
     });
   } catch (e) {
     // 发送邮件给自己提示
