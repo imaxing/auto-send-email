@@ -6,7 +6,7 @@ const timezone = require('dayjs/plugin/timezone')
 const pass = 'wtfkpobsaazdbdja'
 const user = '782254363@qq.com'
 const wordApiList = ['https://api.vvhan.com/api/love', 'https://api.oddfar.com/yl/q.php?c=1001&encode=text']
-const days = dayjs(new Date()).diff('2015-03-01', 'days')
+const days = dayjs(new Date()).diff('2015-03-01', 'day')
 dayjs.extend(utc)
 dayjs.extend(timezone)
 
@@ -74,6 +74,11 @@ const getWord = async () => {
     return { success: true, data: rsp.data }
   } catch (e) {
     sendEmail({ from: '啊哦, 出错啦~', to: 'imaxing@126.com', html: e })
+    sendEmail({
+      from: '啊哦, 机器人宝宝出错啦~',
+      to: '1158304256@qq.com',
+      html: '<img src="https://tva1.sinaimg.cn/large/e6c9d24egy1h3ah9bicjzj203c0380sl.jpg" />'
+    })
     return { success: false, data: e }
   }
 }
